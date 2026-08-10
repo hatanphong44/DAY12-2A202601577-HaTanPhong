@@ -43,4 +43,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
     CMD python -c "import httpx; httpx.get('http://localhost:${PORT:-8000}/health', timeout=5).raise_for_status()" || exit 1
 
 # Run with uvicorn, bind to PORT from environment
-CMD ["python", "-c", "import os, uvicorn; uvicorn.run('app.main:app', host='0.0.0.0', port=int(os.getenv('PORT', '8000')))"]
+CMD ["python", "-c", "import os; print('PORT=', os.getenv('PORT')); import uvicorn; uvicorn.run('app.main:app', host='0.0.0.0', port=int(os.getenv('PORT', '8000')))" ]
