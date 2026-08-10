@@ -12,8 +12,8 @@
 
 | Mục | Nội dung |
 |-----|----------|
-| Public URL | https://day12-agent.up.railway.app |
-| Platform | Railway |
+| Public URL | https://day12-2a202601577-hatanphong.onrender.com |
+| Platform | Render |
 | Ngày deploy | 2026-08-10 |
 
 ## Biến Môi Trường Đã Set Trên Cloud
@@ -31,18 +31,18 @@
 
 ```bash
 # 1. Liveness — mong đợi 200
-curl -i https://day12-agent.up.railway.app/health
+curl -i https://day12-2a202601577-hatanphong.onrender.com/health
 
 # 2. Readiness — mong đợi 200
-curl -i https://day12-agent.up.railway.app/ready
+curl -i https://day12-2a202601577-hatanphong.onrender.com/ready
 
 # 3. Không có API key — mong đợi 401
-curl -i -X POST https://day12-agent.up.railway.app/ask \
+curl -i -X POST https://day12-2a202601577-hatanphong.onrender.com/ask \
   -H "Content-Type: application/json" \
   -d '{"question":"Hello"}'
 
 # 4. Có API key — mong đợi 200
-curl -i -X POST https://day12-agent.up.railway.app/ask \
+curl -i -X POST https://day12-2a202601577-hatanphong.onrender.com/ask \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $AGENT_API_KEY" \
   -H "X-User-Id: sv-test" \
