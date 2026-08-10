@@ -10,6 +10,7 @@ services:
     dockerfilePath: ./Dockerfile
     plan: free
     healthCheckPath: /health
+    port: 10000
     envVars:
       - key: AGENT_API_KEY
         sync: false
@@ -19,6 +20,8 @@ services:
         value: "10"
       - key: MONTHLY_BUDGET_USD
         value: "10.0"
+      - key: LOCAL_FALLBACK
+        value: "false"
       - key: REDIS_URL
         fromService:
           name: day12-redis
